@@ -15,8 +15,13 @@ const fs = require('fs-extra');
 			}
 			return y
 		});
-		await fs.writeJson('out.json', {name: a})
+		await createJson('output.json', a)
 	} catch(e) {
 		console.log(e);
 	}
 })();
+
+async function createJson(fileName, data) {
+	await fs.writeJson(fileName, {name: data})
+	console.log('file created')
+}
